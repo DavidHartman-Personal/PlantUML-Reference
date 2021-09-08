@@ -1,0 +1,39 @@
+' YAML
+@startyaml
+Parameters:
+  EnvType:
+    Type: String
+    Default: dev
+    Description: Identifies target environment
+    AllowedValues:
+      - prod
+      - dev
+  CreateInstance:
+    Type: String
+    Default: "false"
+    AllowedValues:
+      - "true"
+      - "false"
+    Description: Determines if the database instance needs to be created.
+  TemplateName:
+    Type: String
+    Default: rds-pg-labs
+    Description: Name used for different elements created.
+Conditions:
+  isInEE:
+    !Equals [ !Ref EnvType, "prod" ]
+  isNotInEE:
+    !Equals [ !Ref EnvType, "dev" ]
+@endyaml
+
+' Table
+@startuml
+skinparam titleFontSize 14
+title
+  Example of simple table
+  |= |= table |= header |
+  | a | table | row |
+  | b | table | row |
+end title
+[*] --> State1
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+object London
+object Washington
+object Berlin
+object NewYork
+
+map CapitalCity {
+ UK *-> London
+ USA *--> Washington
+ Germany *---> Berlin
+}
+
+NewYork --> CapitalCity::USA
+
+note left
+  click on  <&wifi>
+end note
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+!include <awslib/AWSCommon>
+!include <awslib/ManagementGovernance/all.puml>
+
+listsprites
+
+@enduml

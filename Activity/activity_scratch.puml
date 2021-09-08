@@ -1,0 +1,105 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:ClickServlet.handleRequest();
+:new page;
+if (Page.onSecurityCheck) then (true)
+  :Page.onInit();
+  if (isForward?) then (no)
+    :Process controls;
+    if (continue processing?) then (no)
+      stop
+    endif
+
+    if (isPost?) then (yes)
+      :Page.onPost();
+    else (no)
+      :Page.onGet();
+    endif
+    :Page.onRender();
+  endif
+else (false)
+endif
+
+if (do redirect?) then (yes)
+  :redirect process;
+else
+  if (do forward?) then (yes)
+    :Forward request;
+  else (no)
+    :Render page template;
+  endif
+endif
+
+stop
+
+@enduml
+
+' Example Diagram that has groupings and explicit drawing directions (e.g. left branch, etc.)
+@startuml
+    title Activity Diagram Example with grouped objects and branches
+
+    (*) --> "first thing"
+    note right
+    Note, note2
+    asedf
+    end note
+
+    --> ===INV_START===
+    -left-> "INV1"
+    if "cond1 && cond2" then
+        -down-> "both true"
+        partition "Partition1 in action_model" {
+            -->[true] "partiton1 true"
+            if "cond2"
+                --> "cond2 true"
+            else
+                --> "cond2 false"
+            endif
+
+            --> "asdfasdf"
+            if "cond3" then
+                -->[true] "cond3-true"
+            else
+                --> "cond3-False"
+            endif
+            --> "asdf"
+            --> "asdfsdfs"
+            --> "asdfasdfasdf"
+            --> "asdfffff"
+            --> "sdfsdfsdfsdddd"
+        }
+    else
+      -->[false] "cond1-cond2-false"
+    endif
+    -down-> ===INV_END===
+
+    "inv-start" --> ===INV_START===
+        -right-> "inv-start-right"
+        if "cond4" then
+            -->[true] "cond4-true"
+            --> "cond4-false"
+            partition "Partition2 in action_model" {
+                --> "start of part"
+                --> "sdf"
+                if "cond5"
+                    --> "cond5-true"
+                else
+                    --> "cond5-false"
+                endif
+                --> "part2-1"
+                --> "part2-2"
+                --> "part2-4"
+                --> "sdfsddd》"
+                --> "sdf"
+                --> "sdfsdf"
+                --> "sdf"
+                --> "part255"
+            }
+        else
+            -->[false] "cond4-false"
+        endif
+    -down-> ===INV_END===
+    --> (*)
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+
+start
+note left
+-h -- Opens up this help message
+-s -- Name of the AWS profile to use for the Shared DevOps Account
+-t -- Name of the AWS profile to use for the Child Account
+-r -- AWS Region to deploy to (e.g. eu-west-1)
+-e -- Environment to deploy to (dev, test or prod)
+-d -- Demo mode
+-f -- Deploys SDLF Foundations
+-o -- Deploys Shared DevOps Account CICD Resources
+-c -- Deploys Child Account CICD Resources
+-x -- Deploys with an external git SCM. Allowed values: ado -> Azure DevOps, bb -> BitBucket
+-a -- Flag to add CodeCommit Pull Request test infrastructure
+end note
+
+:Declare Array of git\n repos to setup;
+note right
+** Git Repos **
+sdlf-foundations
+sdlf-team
+sdlf-pipeline
+sdlf-dataset
+sdlf-datalakeLibrary
+sdlf-pipLibrary
+sdlf-stageA
+sdlf-stageB
+sdlf-utils
+end note
+
+if (FoundationFlag (-f)) then (true)
+    if (FoundationFlag (-f)) then (true)
+      :deploy_sdlf_foundations;
+    endif
+    :deploy_sdlf_foundations;
+endif
+if (DeploySharedDevOps) then (true)
+  :deploy_sdlf_foundations;
+endif
+
+stop
+
+@enduml

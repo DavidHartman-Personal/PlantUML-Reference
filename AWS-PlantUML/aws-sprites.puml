@@ -1,0 +1,9 @@
+@startuml
+!include <awslib/AWSCommon>
+!include <awslib/Storage/all.puml>
+' !include <awslib/mobile/all.puml>
+
+listsprites
+
+footer %filename() rendered with PlantUML version %version()\nThe Hitchhiker’s Guide to PlantUML
+@enduml

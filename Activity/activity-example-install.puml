@@ -1,0 +1,27 @@
+@startuml
+
+skinparam activity {
+    FontColor          white
+    AttributeFontColor white
+    FontSize           17
+    AttributeFontSize  15
+    AttributeFontname  Droid Sans Mono
+    BackgroundColor    #527BC6
+    BorderColor        black
+    ArrowColor         #222266
+}
+
+title page 1
+
+'caption Figure 1
+actor test
+participant ":InputStream" as IS
+box "eu.ensure.packproc" #LightBlue
+participant ":BasicProcessorContext" as PC
+participant ":ProcessorManager" as PM #99FF99
+end box
+
+newpage second one
+
+
+@enduml

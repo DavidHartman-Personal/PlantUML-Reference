@@ -1,0 +1,81 @@
+@startuml
+
+    participant "app: Application" as app
+    participant "cm: ContentManager" as cm
+    participant "item: DownloadItem" as item
+
+    activate app
+    activate cm
+
+    note over app: User enters media info page
+
+    note over app: Check if item exists
+    app->cm: findItem(itemId)
+    cm->cm: lookup(itemId)
+
+    alt item found
+        cm-->app: item
+    else not found
+        cm-->app: null
+        app->cm: createItem(itemId, contentURL)
+        cm->item: new(itemId, contentURL)
+        activate item
+        cm-->app: item
+
+        app->cm: loadMetadata()
+        note over cm
+            Download and parse manifest, save in db
+        end note
+        cm-->app: onTracksAvailable
+        cm-->app: onDownloadMetadata
+        note over app: * See //track-selection// flow
+    end group
+
+    note over app: app is ready to start downloading
+    app->item: startDownload()
+
+
+    @enduml
+
+@startuml
+
+skin BlueModern
+
+title Publish(er) Jobs Workers (Successful Block Copy)
+
+'participant "WebUI" as W
+participant "Orchestra" as O
+participant "Storage" as S
+'participant "Transform" as T
+participant "Publisher" as P
+
+activate O
+P -> P: Startup (celeryd -Q queue_name)
+activate P
+
+P -> O: << get next publish job from queue >>
+O --> P: << next publish job is ... >>
+
+note right: <b>concurrency_value</b> jobs can be threated\nsimultaneously (multithreading)
+P -> P: Launch new block copy
+P -> S: << read media from medias path >>
+activate S
+S --> P: << read block 1/N from media >>
+P --> P: << write block 1/N to local web path >>
+P --> O: << update job status & statistics ... >>
+S --> P: << read block 2/N from media >>
+P --> P: << write block 2/N to local web path >>
+S --> P: << read block N/N from media >>
+P --> P: << write block N/N to local web path >>
+S --> P: << end of file >>
+deactivate S
+P --> O: << update job status & statistics ... >>
+P -> O: POST /publish/callback\n  {"job_id": "<uuid_of_job>", "publish_uri": "...", "status": "SUCCESS"}
+activate O
+O -> O: Set media status=PUBLISHED + publish_uris[job_id]=publish_uri into MongoDB
+O --> P: <b>OK 200</b> {"status": 200, value="Your work is much appreciated, thanks !"}
+
+deactivate P
+deactivate O
+
+@enduml

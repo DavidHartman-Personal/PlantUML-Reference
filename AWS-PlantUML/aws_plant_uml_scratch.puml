@@ -1,0 +1,16 @@
+@startuml
+!include <awslib/AWSCommon>
+!include <awslib/ManagementGovernance/CloudFormationTemplate.puml>
+
+CloudFormationTemplate(rds_main_tempalate, "rdstemplate", "rds-pg-labs-main.yml")
+together {
+CloudFormationTemplate(rdslabsVPCStack, "rdslabsVPCStack", "rds-pg-labs-vpc.yml")
+CloudFormationTemplate(rdslabsC9Stack, "rdslabsC9Stack", "rds-pg-rds-pg-labs-bastion-c9.yml")
+CloudFormationTemplate(rdslabsRDSStack, "rdslabsRDSStack", "rdslabsRDSStack.yml")
+}
+
+rds_main_tempalate  -down-> rdslabsVPCStack
+rds_main_tempalate  -down-> rdslabsC9Stack
+rds_main_tempalate  -down-> rdslabsRDSStack
+
+@enduml

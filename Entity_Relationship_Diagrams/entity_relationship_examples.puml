@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml
+
+@startuml
+'hide the spot
+hide circle
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Entity01" as e01 {
+*e1_id : number <<generated>>
+--
+*name : text
+description : text
+}
+
+entity "Entity02" as e02 {
+*e2_id : number <<generated>>
+--
+*e1_id : number <<FK>>
+other_details : text
+}
+
+entity "Entity03" as e03 {
+*e3_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+'Zero or One |o--
+'Exactly One ||--
+'Zero or Many }o--
+'One or Many }|--
+
+e01 ||..o{ e02
+e01 |o..o{ e03
+
+@enduml
+
+@startuml
+
+Entity01 }|..|| Entity02
+Entity03 }o..o| Entity04
+Entity05 ||--o{ Entity06
+Entity07 |o--|| Entity08
+@enduml
+
+@startuml
+skinparam titleFontSize 14
+title
+ER Diagram Relationship types
+|= |= table |= header |
+| a | table | row |
+| b | table | row |
+end title
+[*] --> State1
+@enduml
