@@ -1,6 +1,6 @@
 ## Archimate Diagram
 
-__This is only a proposal and subject to change__.
+Updates!
 
 You are very welcome [to create a new discussion](http://forum.plantuml.net) on this future syntax. Your feedbacks, ideas and suggestions help us to find the right solution.
 
