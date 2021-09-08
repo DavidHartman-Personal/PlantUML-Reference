@@ -1,3 +1,4 @@
+[![hackmd-github-sync-badge](https://hackmd.io/DoeP7SHKTKqSvyA6vVQykw/badge)](https://hackmd.io/DoeP7SHKTKqSvyA6vVQykw)
 ## Archimate Diagram
 
 Updates!
