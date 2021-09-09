@@ -43,6 +43,8 @@ Activity Diagrams
 AWS Diagrams
 ---
 
+Other Diagram types
+---
+[arc]
 
-
-###### tags: `Templates` `Book`
+###### tags: `PlantUML`
