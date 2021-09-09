@@ -4,7 +4,7 @@ Changing and saving version within HackMD site.
 
 9/9 12:41 - Did an "Import from github" from the HackMD home notes page.  Select github repo, folder and file.
 
-
+9/9 12:44 - After doing import from HackMD home page, this note shows up with a title of "unnamed" on the Home/Notes page.  This comment is to see what happens if I make a change after opening this "Untitled" note from the home page.
 
 Old [syntax for activity diagram](activity-diagram-legacy) had several limitations and
 drawbacks (for example, it's difficult to maintain).
