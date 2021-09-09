@@ -1,4 +1,4 @@
-## Activity Diagram
+# Activity Diagram
 
 9/9 12:48 - Changed header section of markdown document to be a level 1 (was level 2) and adjusted the title to see if the name of the note on the HackMD notes/home page is updated.  It currently has a title of "Untitled" when starting from the home page on HackMD.  
 
