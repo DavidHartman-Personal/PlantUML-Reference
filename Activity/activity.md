@@ -2,6 +2,9 @@
 
 Changing and saving version within HackMD site.
 
+9/9 12:41 - Did an "Import from github" from the HackMD home notes page.  Select github repo, folder and file.
+
+
 
 Old [syntax for activity diagram](activity-diagram-legacy) had several limitations and
 drawbacks (for example, it's difficult to maintain).
