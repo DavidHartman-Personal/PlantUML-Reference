@@ -1,5 +1,8 @@
 ## Activity Diagram (new)
 
+Changing and saving version within HackMD site.
+
+
 Old [syntax for activity diagram](activity-diagram-legacy) had several limitations and
 drawbacks (for example, it's difficult to maintain).
 
