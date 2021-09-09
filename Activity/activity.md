@@ -8,7 +8,7 @@ Graphviz installed (as for sequence diagrams).
 
 This syntax will replace the old legacy one. However, for compatibility reason, the old syntax will still be recognized, to ensure *ascending compatibility*.
 
-Users are simply encouraged to migrate to the new syntax.
+Should use the new syntax whenever possible.
 
 
 ## Simple action
@@ -17,7 +17,6 @@ Activities label starts with ``:`` and ends with ``;``.
 Text formatting can be done using [creole wiki syntax](creole).
 
 They are implicitly linked in their definition order.
-```plantuml
 ```plantuml
 @startuml
 :Hello world;
