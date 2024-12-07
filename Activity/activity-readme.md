@@ -35,9 +35,7 @@ This folder contains the following examples:
 
 ## activity-example-install.puml
 
-https://github.com/DavidHartman-Personal/PlantUML-Reference/edit/main/Activity/activity-readme.md
-
-![activity-example-install](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/DavidHartman-Personal/PlantUML-Reference/edit/main/Activity/activity-example-install.puml)
+![activity-example-install](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/DavidHartman-Personal/PlantUML-Reference/refs/heads/main/Activity/activity-example-install.puml)
 
 
 Example project showing how to use PlantUML and embed UML diagrams into a GitHub markdown
