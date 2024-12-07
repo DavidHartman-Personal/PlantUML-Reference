@@ -1,6 +1,7 @@
 # PlantUML Activity diagrams
 
 Examples, details, etc. for PlantUML Activity diagrams.
+[PlantUML](http://plantuml.com/) 
 
 ```plantuml
 @startuml
@@ -29,7 +30,15 @@ Consumers that have an entitlement in entSet;
 stop
 @enduml
 ```
-Embedded image here:
+
+This folder contains the following examples:
+
+## activity-example-install.puml
+
+https://github.com/DavidHartman-Personal/PlantUML-Reference/edit/main/Activity/activity-readme.md
+
+![activity-example-install](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/DavidHartman-Personal/PlantUML-Reference/edit/main/Activity/activity-example-install.puml)
+
 
 Example project showing how to use PlantUML and embed UML diagrams into a GitHub markdown
 
@@ -77,7 +86,4 @@ That's all - simply see the diagram live:
 
 ![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
 
-[PlantUML](http://plantuml.com/) is a really awesome way to create diagrams by writing code instead of drawing and dragging visual elements. Markdown is a really nice documentation tool.
-
-Here's how I combine the two, to create docs with embedded diagrams.
 
